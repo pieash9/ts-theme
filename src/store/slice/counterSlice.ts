@@ -1,13 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface CounterState {
   value: number;
-  theme: "dark" | "light";
 }
 
 const initialState: CounterState = {
   value: 0,
-  theme: "light",
 };
 
 export const counterSlice = createSlice({
@@ -20,8 +18,11 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    incrementByRandom: (state, { payload }: PayloadAction<number>) => {
+      state.value = state.value + payload;
+    },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, incrementByRandom } = counterSlice.actions;
 export default counterSlice.reducer;

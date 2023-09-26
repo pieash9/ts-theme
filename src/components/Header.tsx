@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "../store/darkModeSlice";
+
+import { toggleDarkMode } from "../store/slice/darkModeSlice";
 import { RootState } from "../store/store";
 
 const Header = () => {

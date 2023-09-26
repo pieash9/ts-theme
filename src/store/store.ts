@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./counterSlice";
-import toggleDarkMode from "./darkModeSlice";
+import counterSlice from "./slice/counterSlice";
+import toggleDarkMode from "./slice/darkModeSlice";
 
 export const store = configureStore({
   reducer: {

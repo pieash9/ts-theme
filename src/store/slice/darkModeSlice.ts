@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface themeState {
   theme: "dark" | "light";
 }
-const storedTheme = localStorage.getItem("theme") || "light";
+const storedTheme = localStorage.getItem("theme") || "dark";
 
 const initialState: themeState = {
   theme: storedTheme === "dark" ? storedTheme : "light",
