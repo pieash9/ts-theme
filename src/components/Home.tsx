@@ -15,13 +15,13 @@ const Home = () => {
 
       <button
         onClick={() => dispatch(increment())}
-        className="btn btn-warning btn-sm "
+        className="btn btn-warning btn-sm rounded"
       >
         Increment
       </button>
       <button
         onClick={() => dispatch(decrement())}
-        className="btn btn-error btn-sm mx-2"
+        className="btn btn-error btn-sm mx-2 rounded"
       >
         Decrement
       </button>
@@ -29,7 +29,7 @@ const Home = () => {
         onClick={() =>
           dispatch(incrementByRandom(Math.floor(Math.random() * 200)))
         }
-        className="btn btn-info btn-sm"
+        className="btn btn-info btn-sm rounded"
       >
         Random Increment
       </button>
