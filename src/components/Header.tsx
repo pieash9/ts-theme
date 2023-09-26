@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { toggleDarkMode } from "../store/darkModeSlice";
+
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <div className="bg-base-100 w-full shadow-xl">
       <div className="navbar max-w-7xl mx-auto ">
@@ -71,7 +75,10 @@ const Header = () => {
         <div className="navbar-end ">
           <label className="swap swap-rotate ">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={() => dispatch(toggleDarkMode())}
+            />
 
             {/* sun icon */}
             <svg
