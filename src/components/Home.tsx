@@ -11,7 +11,7 @@ const Home = () => {
   const dispatch = useDispatch();
   return (
     <div className="text-center mt-10">
-      <h3 className="mb-3 font-semibold text-2xl">{count.value}</h3>
+      <h3 className="mb-4 font-semibold text-3xl">{count.value}</h3>
 
       <button
         onClick={() => dispatch(increment())}
@@ -29,7 +29,7 @@ const Home = () => {
         onClick={() =>
           dispatch(incrementByRandom(Math.floor(Math.random() * 200)))
         }
-        className="btn btn-info btn-sm rounded"
+        className="btn btn-info btn-sm rounded lg:mt-0 mt-3"
       >
         Random Increment
       </button>
