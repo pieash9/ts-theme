@@ -3,11 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface themeState {
   theme: "dark" | "light";
 }
+const storedTheme = localStorage.getItem("theme") || "light";
 
 const initialState: themeState = {
-  theme: localStorage.getItem("theme")
-    ? localStorage.getItem("theme")
-    : "light",
+  theme: storedTheme === "dark" ? storedTheme : "light",
 };
 
 export const themeSlice = createSlice({

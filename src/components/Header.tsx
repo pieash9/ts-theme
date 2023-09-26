@@ -1,8 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../store/darkModeSlice";
+import { RootState } from "../store/store";
 
 const Header = () => {
+  const currentTheme = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch();
+
+  const themeFromLocalStorage = localStorage.getItem("theme");
+  const initialTheme = themeFromLocalStorage || currentTheme;
+  document.querySelector("html")?.setAttribute("data-theme", initialTheme);
+
   return (
     <div className="bg-base-100 w-full shadow-xl">
       <div className="navbar max-w-7xl mx-auto ">
@@ -24,59 +31,16 @@ const Header = () => {
                 />
               </svg>
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
           </div>
           <a className=" normal-case font-semibold text-xl">TS Theme</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
+        <div className="navbar-center hidden lg:flex"></div>
         <div className="navbar-end ">
           <label className="swap swap-rotate ">
             {/* this hidden checkbox controls the state */}
             <input
               type="checkbox"
+              checked={currentTheme === "light"}
               onChange={() => dispatch(toggleDarkMode())}
             />
 
